@@ -57,10 +57,10 @@ def main():
             mfcc_tsne = tsne.fit_transform(mfcc_concatenated.T)
 
             #%% Apply UMAP
-            reducer  = umap.UMAP(n_components=2)
-            stft_umap = reducer.fit_transform(stft_concatenated.T)
-            mtft_umap = reducer.fit_transform(mtft_concatenated.T)
-            mfcc_umap = reducer.fit_transform(mfcc_concatenated.T)
+            #reducer  = umap.UMAP(n_components=2)
+            #stft_umap = reducer.fit_transform(stft_concatenated.T)
+            #mtft_umap = reducer.fit_transform(mtft_concatenated.T)
+            #mfcc_umap = reducer.fit_transform(mfcc_concatenated.T)
             
             
             st.subheader("tSNE Comparison")                    
@@ -73,15 +73,15 @@ def main():
             ax[2].set_title('MFCCs')
             st.pyplot(fig)
             
-            st.subheader("UMAP Comparison")                    
-            fig, ax = plt.subplots(3,1)
-            ax[0].scatter(stft_umap[:, 0], stft_umap[:, 1], c='b', label='STFTs')
-            ax[0].set_title('STFTs')
-            ax[1].scatter(mtft_tsne[:, 0], mtft_umap[:, 1], c='b', label='STMTs')
-            ax[1].set_title('Mel-Spectrograms')
-            ax[2].scatter(mfcc_umap[:, 0], mfcc_umap[:, 1], c='b', label='STFTs')
-            ax[2].set_title('MFCCs')
-            st.pyplot(fig)  
+           # st.subheader("UMAP Comparison")                    
+           # fig, ax = plt.subplots(3,1)
+           # ax[0].scatter(stft_umap[:, 0], stft_umap[:, 1], c='b', label='STFTs')
+           # ax[0].set_title('STFTs')
+           # ax[1].scatter(mtft_tsne[:, 0], mtft_umap[:, 1], c='b', label='STMTs')
+           # ax[1].set_title('Mel-Spectrograms')
+           # ax[2].scatter(mfcc_umap[:, 0], mfcc_umap[:, 1], c='b', label='STFTs')
+           # ax[2].set_title('MFCCs')
+           # st.pyplot(fig)  
             
 if __name__ == "__main__":
     main()
