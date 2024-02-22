@@ -3,7 +3,7 @@ import librosa.display
 import streamlit as st
 import matplotlib.pyplot as plt
 from sklearn.manifold import TSNE
-from umap import umap_ as UMAP
+import umap
 import numpy as np
 
 # Streamlit app
@@ -57,7 +57,7 @@ def main():
             mfcc_tsne = tsne.fit_transform(mfcc_concatenated.T)
 
             #%% Apply UMAP
-            umap = UMAP(n_components=2)
+            umap = umap.UMAP(n_components=2)
             stft_umap = umap.fit_transform(stft_concatenated.T)
             mtft_umap = umap.fit_transform(mtft_concatenated.T)
             mfcc_umap = umap.fit_transform(mfcc_concatenated.T)
