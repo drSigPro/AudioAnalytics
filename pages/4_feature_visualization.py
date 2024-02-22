@@ -3,7 +3,7 @@ import librosa.display
 import streamlit as st
 import matplotlib.pyplot as plt
 from sklearn.manifold import TSNE
-from umap import UMAP
+from umap import umap_ as UMAP
 import numpy as np
 
 # Streamlit app
