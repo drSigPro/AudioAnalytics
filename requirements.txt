@@ -1,0 +1,6 @@
+librosa
+matplotlib 
+numpy
+scikit-learn @ file:///D:/bld/scikit-learn_1708073929074/work
+scipy 
+streamlit==1.31.1
