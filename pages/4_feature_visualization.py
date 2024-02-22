@@ -57,10 +57,10 @@ def main():
             mfcc_tsne = tsne.fit_transform(mfcc_concatenated.T)
 
             #%% Apply UMAP
-            umap = umap.UMAP(n_components=2)
-            stft_umap = umap.fit_transform(stft_concatenated.T)
-            mtft_umap = umap.fit_transform(mtft_concatenated.T)
-            mfcc_umap = umap.fit_transform(mfcc_concatenated.T)
+            reducer  = umap.UMAP(n_components=2)
+            stft_umap = reducer.fit_transform(stft_concatenated.T)
+            mtft_umap = reducer.fit_transform(mtft_concatenated.T)
+            mfcc_umap = reducer.fit_transform(mfcc_concatenated.T)
             
             
             st.subheader("tSNE Comparison")                    
