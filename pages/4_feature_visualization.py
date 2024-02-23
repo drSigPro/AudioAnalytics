@@ -8,7 +8,7 @@ import numpy as np
 
 # Streamlit app
 st.divider()
-st.title("Audio Sampling and Quantization Demo \t")
+st.title("Demo for visualizing features using t-SNE \t")
 st.divider()
 
 
