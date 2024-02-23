@@ -14,7 +14,7 @@ def amplitude_envelope(signal, window, overlap):
 
 # Streamlit app
 st.divider()
-st.title("Audio Sampling and Quantization Demo \t")
+st.title("Demo for Extracting Audio Features \t")
 st.divider()
 
 
