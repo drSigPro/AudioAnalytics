@@ -58,7 +58,7 @@ def butter_highpass(highcut, fs, order=5):
 
 # Streamlit app
 st.divider()
-st.title("Audio Sampling and Quantization Demo \t")
+st.title("Pre-processing (Filtering) Demo \t")
 st.divider()
 
 
