@@ -101,7 +101,7 @@ def main():
                 ax.set_ylabel("Amplitude")  
                 ax.grid()
                 ax2 = ax.twinx()
-                ax2.plot(t_cent, cent.T)                 
+                ax2.plot(t_cent, cent.T,'r+')                 
                 ax2.set_xlabel("Time (s)")
                 ax2.set_ylabel("Frequency *Hz)")  
                 # ax2.grid()
