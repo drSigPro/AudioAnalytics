@@ -143,8 +143,7 @@ def main():
                 
                 st.subheader("Spectral Contrast") 
                 fig, ax = plt.subplots()
-                librosa.display.specshow(contrast, x_axis="time",sr=orig_sr)
-                ax.plot(times, cent.T, label='Spectral centroid', color='w')                
+                librosa.display.specshow(contrast, x_axis="time",sr=orig_sr)                              
                 ax.set(title='log Power spectrogram')
                 st.pyplot(fig)
                
