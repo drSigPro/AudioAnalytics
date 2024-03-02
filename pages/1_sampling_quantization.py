@@ -29,7 +29,7 @@ def main():
     
     if uploaded_file:
 
-        if st.button('Sample and Quantize'):
+        if sampling_rate or quantization_levels:
             
             original_audio, orig_sr  = librosa.load(uploaded_file)
             
