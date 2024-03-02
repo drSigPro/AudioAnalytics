@@ -174,6 +174,7 @@ def main():
                 ax.set_title('Spectrogram')                
                 ax.set_xlabel('Time')
                 ax.set_ylabel('Frequency (Hz)')
+                st.pyplot(fig)
 
                 ax = axs[0, 1]
                 librosa.display.specshow(contrast, x_axis="time",sr=orig_sr)                              
