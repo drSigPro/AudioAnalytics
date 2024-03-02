@@ -127,46 +127,19 @@ def main():
                 
                 # Convert magnitudes to decibels
                 all_ffts_db = librosa.amplitude_to_db(np.abs(all_ffts), ref=np.max)
-                    
-                st.subheader("Spectrogram") 
-                fig, ax = plt.subplots(1,1)
-                librosa.display.specshow(all_ffts_db.T, sr=orig_sr, hop_length=hopsize, x_axis='time', y_axis='linear')
-                ax.set_title('Spectrogram')                
-                ax.set_xlabel('Time')
-                ax.set_ylabel('Frequency (Hz)')
-                st.pyplot(fig)
-               
-               
+                
                 #%% Spectral Contrast                
                 S = np.abs(librosa.stft(y=original_audio,n_fft=fftsize, hop_length=hopsize, win_length=windowlength))
                 contrast = librosa.feature.spectral_contrast(S=S, sr=orig_sr)
                 
-                st.subheader("Spectral Contrast") 
-                fig, ax = plt.subplots()
-                librosa.display.specshow(contrast, x_axis="time",sr=orig_sr)                              
-                ax.set(title='log Power spectrogram')
-                st.pyplot(fig)
-               
                 #%% Mel Spectrogram
                 mel_signal = librosa.feature.melspectrogram(y=original_audio, sr=orig_sr, hop_length=hopsize, n_fft=fftsize)
                 spectrogram = np.abs(mel_signal)
                 power_to_db = librosa.power_to_db(spectrogram, ref=np.max)
-                fig, ax = plt.subplots(1,1)
-                librosa.display.specshow(power_to_db, sr=orig_sr, x_axis='time', y_axis='mel', cmap='magma', hop_length=hopsize)
-                ax.set_title('Mel-Spectrogram (dB)')
-                ax.set_xlabel('Time')
-                ax.set_ylabel('Log Frequency')
-                st.pyplot(fig)
                 
                 #%% MFCC
                 mfccs = librosa.feature.mfcc(y=original_audio, n_mfcc=100, sr=orig_sr,dct_type=2)
-                fig, ax = plt.subplots(1,1)
-                librosa.display.specshow(mfccs, x_axis="time",sr=orig_sr)
-                ax.set_title('MFCC')
-                ax.set_xlabel('Time')
-                ax.set_ylabel('MFCC')
-                st.pyplot(fig)
-
+                
                 # Display the results
                 fig, axs = plt.subplots(2, 2, figsize=(15, 10))
                 librosa.display.specshow(all_ffts_db.T, sr=orig_sr, hop_length=hopsize, x_axis='time', y_axis='linear', ax = axs[0,0])
@@ -191,10 +164,6 @@ def main():
                 ax.set_ylabel('MFCC')
             
                 st.pyplot(fig)
-                
-                
-                
-                
                 
 if __name__ == "__main__":
     main()
