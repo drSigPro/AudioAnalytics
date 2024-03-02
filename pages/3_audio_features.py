@@ -45,7 +45,7 @@ def main():
     
     if uploaded_file:
 
-        if st.button('Extract Features'):
+        if option:
             
             original_audio, orig_sr  = librosa.load(uploaded_file)
             t = np.linspace(0, len(original_audio) / orig_sr, len(original_audio))           
