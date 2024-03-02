@@ -140,15 +140,13 @@ def main():
                 #%% Spectral Contrast
                 cent = librosa.feature.spectral_centroid(y=original_audio, sr=orig_sr)
                 times = librosa.times_like(cent)
-                
+                S = np.abs(librosa.stft(y,hop_length=hop_size, n_fft=1024))
+                contrast = librosa.feature.spectral_contrast(S=S, sr=sr)
                 
                 st.subheader("Spectral Contrast") 
                 fig, ax = plt.subplots()
-                librosa.display.specshow(all_ffts_db.T, sr=orig_sr, hop_length=hopsize, x_axis='time', y_axis='linear')
-                # librosa.display.specshow(librosa.amplitude_to_db(S, ref=np.max),
-                #                          y_axis='log', x_axis='time', ax=ax)
-                ax.plot(times, cent.T, label='Spectral centroid', color='w')
-                ax.legend(loc='upper right')
+                librosa.display.specshow(contrast, x_axis="time",sr=orig_sr)
+                ax.plot(times, cent.T, label='Spectral centroid', color='w')                
                 ax.set(title='log Power spectrogram')
                 st.pyplot(fig)
                
