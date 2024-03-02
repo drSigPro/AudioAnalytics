@@ -170,11 +170,10 @@ def main():
                 # Display the results
                 fig, axs = plt.subplots(2, 2, figsize=(15, 10))
                 ax = axs[0, 0]
-                librosa.display.specshow(all_ffts_db.T, sr=orig_sr, hop_length=hopsize, x_axis='time', y_axis='linear')
+                librosa.display.specshow(all_ffts_db.T, sr=orig_sr, hop_length=hopsize, x_axis='time', y_axis='linear', ax = axs[0,0])
                 ax.set_title('Spectrogram')                
                 ax.set_xlabel('Time')
                 ax.set_ylabel('Frequency (Hz)')
-                st.pyplot(fig)
 
                 ax = axs[0, 1]
                 librosa.display.specshow(contrast, x_axis="time",sr=orig_sr)                              
