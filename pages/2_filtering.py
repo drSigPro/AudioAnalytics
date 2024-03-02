@@ -82,7 +82,7 @@ def main():
     
     if uploaded_file:
 
-        if st.button('Filter'):
+        if option:
             
             original_audio, orig_sr  = librosa.load(uploaded_file)
             
