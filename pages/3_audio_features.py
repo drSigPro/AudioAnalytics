@@ -166,6 +166,34 @@ def main():
                 ax.set_xlabel('Time')
                 ax.set_ylabel('MFCC')
                 st.pyplot(fig)
+
+                # Display the results
+                fig, axs = plt.subplots(2, 2, figsize=(15, 10))
+                ax = axs[0, 0]
+                librosa.display.specshow(all_ffts_db.T, sr=orig_sr, hop_length=hopsize, x_axis='time', y_axis='linear')
+                ax.set_title('Spectrogram')                
+                ax.set_xlabel('Time')
+                ax.set_ylabel('Frequency (Hz)')
+
+                ax = axs[0, 1]
+                librosa.display.specshow(contrast, x_axis="time",sr=orig_sr)                              
+                ax.set(title='log Power spectrogram')
+
+                ax = axs[1,0]
+                librosa.display.specshow(power_to_db, sr=orig_sr, x_axis='time', y_axis='mel', cmap='magma', hop_length=hopsize)
+                ax.set_title('Mel-Spectrogram (dB)')
+                ax.set_xlabel('Time')
+                ax.set_ylabel('Log Frequency')
+                
+                ax = axs[1,1]
+                librosa.display.specshow(mfccs, x_axis="time",sr=orig_sr)
+                ax.set_title('MFCC')
+                ax.set_xlabel('Time')
+                ax.set_ylabel('MFCC')
+            
+                st.pyplot(fig)
+                
+                
                 
                 
                 
