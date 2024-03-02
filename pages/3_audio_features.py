@@ -137,10 +137,8 @@ def main():
                 st.pyplot(fig)
                
                
-                #%% Spectral Contrast
-                cent = librosa.feature.spectral_centroid(y=original_audio, sr=orig_sr)
-                times = librosa.times_like(cent)
-                S = np.abs(librosa.stft(y,hop_length=hop_size, n_fft=1024))
+                #%% Spectral Contrast                
+                S = np.abs(librosa.stft(y,hop_length=hopsize, n_fft=1024))
                 contrast = librosa.feature.spectral_contrast(S=S, sr=sr)
                 
                 st.subheader("Spectral Contrast") 
