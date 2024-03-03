@@ -42,7 +42,7 @@ def main():
             mfcc1 = librosa.feature.mfcc(y=y1, n_mfcc=100, sr=sr1,dct_type=2)
             mfcc2 = librosa.feature.mfcc(y=y2, n_mfcc=100, sr=sr2,dct_type=2)
 
-             st.subheader("Comparison")                    
+            st.subheader("Comparison")                    
             fig, ax = plt.subplots(4,1)
             ax[0].scatter(y1, y2, c='b', label='Raw', marker = 'o')
             ax[0].set_title('Raw Signals')
